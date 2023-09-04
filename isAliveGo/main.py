@@ -16,7 +16,6 @@ def isAlive(board : List[List[str]], visited : List[List[bool]], queue : deque, 
 
     directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
     
-    
     # Check surrounding cells 
     for dx, dy in directions:
         
@@ -35,7 +34,7 @@ def isAlive(board : List[List[str]], visited : List[List[bool]], queue : deque, 
             queue.append([x,y])
             logger.debug(queue)
 
-    # Recusively search through board   
+    # Recusively search through board
     while queue:
         xq, yq = queue.popleft()
         logger.info(f"Moving to {xq},{yq}")
@@ -43,19 +42,17 @@ def isAlive(board : List[List[str]], visited : List[List[bool]], queue : deque, 
         
     return False
 
-
-
 if __name__ == "__main__":
     n = 5
     board = [
-        ['','B','B','B',''],
+        ['','B','B','',''],
         ['B','W','W','B',''],
         ['B','W','W','B',''],
-        ['','B','B','B',''],
-        ['','','','','B']
+        ['','B','B','',''],
+        ['','','','','']
     ]
     visited = [[False]*n for i in range(n)]
     q = deque()
-    print("Cell is alive? : ",isAlive(board,visited,q,1,1))
+    print("Cell is alive? : ", isAlive(board,visited,q,1,1))
     
 
